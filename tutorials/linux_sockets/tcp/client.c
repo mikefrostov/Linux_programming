@@ -1,8 +1,11 @@
+#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <stdio.h>
 #include <netdb.h>
-
+#include <string.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[]) {
 
@@ -21,7 +24,7 @@ int main(int argc, char *argv[]) {
 
 
     /* create streaming socket, simpleSocket gets file descriptor num */
-    simpleSocket = socket(AF_INET, SOCK_STREAM, IPPORTO_TCP);
+    simpleSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
     if (simpleSocket == -1) {
         fprintf(stderr, "fail\n");
@@ -66,8 +69,6 @@ int main(int argc, char *argv[]) {
         
     close(simpleSocket);
     return 0;
-
-
 
 }
 

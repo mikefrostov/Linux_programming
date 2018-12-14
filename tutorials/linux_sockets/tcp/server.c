@@ -1,8 +1,11 @@
+#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <stdio.h>
 #include <netdb.h>
-
+#include <string.h>
+#include <fcntl.h> 
+#include <unistd.h> 
 
 const char APRESSMESSAGE[] = "APRESS for professionals\n";
 
@@ -22,8 +25,8 @@ int main(int argc, char *argv[]) {
 
 
     /* create streaming socket, simpleSocket gets file descriptor num */
-    simpleSocket = socket(AF_INET, SOCK_STREAM, IPPORTO_TCP);
-
+    simpleSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    printf("sipleSocket=%d", simpleSocket);
     if (simpleSocket == -1) {
         fprintf(stderr, "fail\n");
         exit(1);
